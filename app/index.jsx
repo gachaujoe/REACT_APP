@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text ,StyleSheet, Image } from 'react-native';
+import { Link } from 'expo-router';
 
 import logo from '../assets/img/logo light.jpg'
 const Home = () => {
@@ -13,6 +14,9 @@ const Home = () => {
         Reading List App
       </Text>
 
+      <Link href="/about" style={styles.link}>About Page</Link>
+      <Link href="/contact" style={styles.link}>contact Page</Link>
+
     
 
         
@@ -22,6 +26,7 @@ const Home = () => {
 };
 
 export default Home;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -36,5 +41,9 @@ const styles = StyleSheet.create({
         marginVertical: 20,
 
     },
+    link: {
+        marginVertical: 10,
+        borderBottomWidth: 1
+    }
     
 })
