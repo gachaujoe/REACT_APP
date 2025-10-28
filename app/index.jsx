@@ -91,8 +91,8 @@ const Home = () => {
         <ThemedText style={{ color: theme.text }}>login Page</ThemedText>
       </Link>
 
-      <Link href="/register" style={[styles.link, { borderBottomColor: theme.iconColor }]}>
-        <ThemedText style={{ color: theme.text }}>Register Page</ThemedText>
+      <Link href="/profile" style={[styles.link, { borderBottomColor: theme.iconColor }]}>
+        <ThemedText style={{ color: theme.text }}>Profile Page</ThemedText>
       </Link>
     </ThemedView>
   );
