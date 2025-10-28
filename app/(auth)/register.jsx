@@ -1,11 +1,15 @@
-import { StyleSheet} from "react-native";
+import { StyleSheet,Text} from "react-native";
 import { Link } from 'expo-router';
 
 // Themed components 
 import ThemedView from '../../components/ThemedView';
 import Spacer from '../../components/Spacer';
 import ThemedText from '../../components/ThemedText';
+import ThemedButton from '../../components/ThemedButton'; 
 const Register =() =>{
+     const handleSubmit = () => {
+        console.log('Register form submitted')
+    }
     return(
         <ThemedView style={style.container}>
 
@@ -13,6 +17,11 @@ const Register =() =>{
             <ThemedText title={true} style={style.title}>
             Register for an Account
             </ThemedText>
+
+               <ThemedButton onPress={handleSubmit}>
+                 <Text style={{color: '#f2f2f2'}}>Register</Text>
+            
+                        </ThemedButton>
 
             <Spacer height = {100}/>
             <Link href ='/login'>

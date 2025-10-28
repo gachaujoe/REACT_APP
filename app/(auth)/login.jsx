@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, Text} from "react-native";
+import { StyleSheet, Pressable, Text, useColorScheme} from "react-native";
 import { Link } from 'expo-router';
 import { Colors } from '../../constants/Colors'
 
@@ -6,27 +6,24 @@ import { Colors } from '../../constants/Colors'
 import ThemedView from '../../components/ThemedView';
 import Spacer from '../../components/Spacer';
 import ThemedText from '../../components/ThemedText';
+import ThemedButton from "../../components/ThemedButton";
 const Login =() =>{
     const handleSubmit = () => {
         console.log('Login form submitted')
     }
 
     return(
-        <ThemedView style={style.container}>
+        <ThemedView style={styles.container}>
 
             <Spacer />
-            <ThemedText title={true} style={style.title}>
+            <ThemedText title={true} style={styles.title}>
             login to Your Account
             </ThemedText>
 
+            <ThemedButton onPress={handleSubmit}>
+                <Text style={{color: '#f2f2f2'}}>Login</Text>
 
-            <Pressable 
-            onPress={handleSubmit}
-            
-            style={({pressed})=> [style.btn, pressed && style.pressed]}>
-                <Text style={{ color: "#f2f2f2f2"}}>Login</Text>
-
-            </Pressable>
+            </ThemedButton>
 
             <Spacer height = {100}/>
             <Link href ='/register'>
@@ -43,10 +40,11 @@ const Login =() =>{
 
 export default Login
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container : {
         flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
     },
     title: {
         textAlign: "center",
@@ -56,7 +54,7 @@ const style = StyleSheet.create({
     btn: {
         backgroundColor: Colors.primary,
         padding: 15,
-        boarderRadius: 5,
+        borderRadius: 5,
 
     },
     pressed: {
