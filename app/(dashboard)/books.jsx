@@ -25,4 +25,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignment:"center",
     },
+    heading:{
+        fontWeight: "bold",
+        fontSize: 18,
+        textAlign: "center"
+        
+    },
 })
