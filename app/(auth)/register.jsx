@@ -1,22 +1,50 @@
-import { StyleSheet,Text} from "react-native";
+import { Keyboard, StyleSheet,Text, TouchableWithoutFeedback} from "react-native";
 import { Link } from 'expo-router';
+import { Colors } from '../../constants/Colors'
+import { useState } from 'react'
 
 // Themed components 
 import ThemedView from '../../components/ThemedView';
 import Spacer from '../../components/Spacer';
 import ThemedText from '../../components/ThemedText';
 import ThemedButton from '../../components/ThemedButton'; 
+import ThemedTextInput from "../../components/ThemedTextInput";
 const Register =() =>{
+     const[email,setEmail] = useState('')
+     const[password,setPassword] = useState('')
+
+
      const handleSubmit = () => {
-        console.log('Register form submitted')
+        console.log('Register form submitted',email,password)
     }
     return(
+        // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
+
         <ThemedView style={style.container}>
 
             <Spacer />
             <ThemedText title={true} style={style.title}>
             Register for an Account
             </ThemedText>
+
+             <ThemedTextInput
+             style={{width:'80',marginBottom:20}}
+             placeholder="Email"
+             keyboardType='email-address'
+             onChangeText={setEmail}
+             value= {email}
+            
+              />
+                          
+          <ThemedTextInput
+             style={{width:'80',marginBottom:20}}
+              placeholder="Password"
+              secureTextEntry
+              onChangeText={setPassword}
+              value= {password}
+              />
+            
 
                <ThemedButton onPress={handleSubmit}>
                  <Text style={{color: '#f2f2f2'}}>Register</Text>
@@ -33,21 +61,23 @@ const Register =() =>{
         
 
         </ThemedView>
+        // </TouchableWithoutFeedback>
     )
 }
 
 export default Register
 
-const style = StyleSheet.create({
+ const style = StyleSheet.create({
     container : {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    title: {
-        textAlign: "center",
-        fontSize: 18,
-        marginBottom: 30
-    },
+         flex: 1,
+         justifyContent: 'center',
+            alignItems: 'center'
+     },
+     title: {
+         textAlign: "center",
+         fontSize: 18,
+         marginBottom: 30
+     },
+        
+ })
 
-    
-})
